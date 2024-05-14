@@ -1,19 +1,14 @@
-'''
-    This task was assigned by the lecturer as an assignmenr 
-    for the course "Coding and Cryptographie 
-    Engineering" in the University of Bamenda.
-    The task was to create a program that can encrypt and
-    decrypt a text using the Vigenere cipher.
-    The Vigenere cipher is a method of encrypting alphabetic
-    text by using a simple form of polyalphabetic substitution.
-    A polyalphabetic cipher is any cipher based on substitution,
-    using multiple substitution alphabets. The encryption of the
-    original text is done using the Vigenère square or Vigenère
-    table.
-    text = "Cryptography originally deals with the problem of encrypting messages so that nobody but the authorised person can decrypt and read it. It has been used throughout the last"
-    keyword = "unconstitutionality"
-'''
 def vigenere_cipher(text, keyword):
+    """
+    Encrypts the given text using the Vigenere cipher.
+
+    Args:
+        text (str): The plaintext to be encrypted.
+        keyword (str): The keyword used for encryption.
+
+    Returns:
+        str: The encrypted ciphertext.
+    """
     encrypted_text = ""
     keyword_index = 0
     for char in text:
@@ -28,11 +23,47 @@ def vigenere_cipher(text, keyword):
             encrypted_text += char
     return encrypted_text
 
+def affine_cipher(text, a, b):
+    """
+    Encrypts the given text using the Affine cipher.
+
+    Args:
+        text (str): The plaintext to be encrypted.
+        a (int): The first encryption key.
+        b (int): The second encryption key.
+
+    Returns:
+        str: The encrypted ciphertext.
+    """
+    encrypted_text = ""
+    for char in text:
+        if char.isalpha():
+            if char.isupper():
+                encrypted_text += chr(((ord(char) - ord('A')) * a + b) % 26 + ord('A'))
+            else:
+                encrypted_text += chr(((ord(char) - ord('a')) * a + b) % 26 + ord('a'))
+        else:
+            encrypted_text += char
+    return encrypted_text
+
 def main():
+    """
+    Main function to select encryption mode and perform encryption.
+    """
+    mode = input("Select encryption mode (Vigenere/Affine): ").lower()
     text = input("Enter the plaintext: ")
-    keyword = input("Enter the keyword: ").lower()  # Convert keyword to lowercase
+
+    if mode == "vigenere":
+        keyword = input("Enter the keyword: ").lower()  # Convert keyword to lowercase
+        cipher_text = vigenere_cipher(text, keyword)
+    elif mode == "affine":
+        a = int(input("Enter value for 'a' in Affine cipher: "))
+        b = int(input("Enter value for 'b' in Affine cipher: "))
+        cipher_text = affine_cipher(text, a, b)
+    else:
+        print("Invalid encryption mode.")
+        return
     
-    cipher_text = vigenere_cipher(text, keyword)
     print("Cipher Text:")
     print(cipher_text)
 

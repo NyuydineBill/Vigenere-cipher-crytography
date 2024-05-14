@@ -19,7 +19,17 @@ This Python script demonstrates how to encrypt a plaintext using the Vigenere ci
 
 ## How It Works
 
-The script takes the plaintext and a keyword as input. It then iterates through each character in the plaintext. For each alphabetic character, it shifts the character based on the corresponding letter in the keyword. Non-alphabetic characters remain unchanged. Finally, it returns the encrypted text.
+The Vigenere cipher encrypts letters of the plaintext by shifting them based on a keyword. The encryption formula is:
+
+\[ E(x) = (x + k) \mod 26 \]
+
+Where:
+- \( E(x) \) is the encrypted letter,
+- \( x \) is the numerical value of the plaintext letter,
+- \( k \) is the numerical value of the corresponding letter in the keyword, and
+- \( \mod 26 \) ensures the result wraps around within the range of the alphabet.
+
+Non-alphabetic characters remain unchanged.
 
 ## Example
 
