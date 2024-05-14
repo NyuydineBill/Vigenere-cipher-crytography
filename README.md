@@ -1,6 +1,6 @@
-# Vigenere Cipher Encryption
+# Vigenere and Affine Cipher Encryption
 
-This Python script demonstrates how to encrypt a plaintext using the Vigenere cipher technique. The Vigenere cipher is a method of encrypting alphabetic text by using a keyword and rearranging the letters based on a keyword.
+This Python script demonstrates how to encrypt a plaintext using the Vigenere or Affine cipher techniques. Both ciphers are methods of encrypting alphabetic text, each with its own approach.
 
 ## Usage
 
@@ -14,11 +14,12 @@ This Python script demonstrates how to encrypt a plaintext using the Vigenere ci
     python main.py
     ```
 
-6. Follow the prompts to enter the plaintext and keyword when prompted.
+6. Follow the prompts to select the encryption mode (Vigenere or Affine) and enter the plaintext and keyword or key values when prompted.
 7. The encrypted text will be displayed in the terminal.
 
 ## How It Works
 
+### Vigenere Cipher
 The Vigenere cipher encrypts letters of the plaintext by shifting them based on a keyword. The encryption formula is:
 
 \[ E(x) = (x + k) \mod 26 \]
@@ -31,12 +32,22 @@ Where:
 
 Non-alphabetic characters remain unchanged.
 
+### Affine Cipher
+The Affine cipher encrypts letters of the plaintext using a mathematical function of the form \( E(x) = (ax + b) \mod m \), where:
+- \( E(x) \) is the encrypted letter,
+- \( x \) represents the numerical value of a letter in the alphabet,
+- \( a \) and \( b \) are integers that serve as the encryption keys, and
+- \( m \) is the size of the alphabet.
+
+Non-alphabetic characters remain unchanged.
+
 ## Example
 
 Suppose we want to encrypt the following text:
+`Cryptography originally deals with the problem of encrypting messages so that nobody but the authorised person can decrypt and read it. It has been used throughout the last`
 
 
-After running the script and entering the keyword "unconstitutionality", the output will be the encrypted text.
+After running the script and selecting the encryption mode (Vigenere or Affine) and entering the appropriate keyword or key values, the output will be the encrypted text.
 
 ## Credits
 
