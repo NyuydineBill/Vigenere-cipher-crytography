@@ -30,7 +30,7 @@ After running the script and entering the keyword "unconstitutionality", the out
 
 ## Credits
 
-This script was written by `Nyuydine Bill`.
+This script was written by [Nyuydine Bill](nyuydine.netlify.app).
 
 ## License
 
